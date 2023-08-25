@@ -25,7 +25,7 @@
 		},
 		methods: {
 			sendInfo() {
-				this.$emit('info-clicked', this.imageSrc);
+				this.$emit('info-clicked', this.cakeImage, this.cakeTitle);
 			}
 		},
 	}

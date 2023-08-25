@@ -2,7 +2,6 @@
   "navigationBarTitleText": "一涵的蛋糕",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "uni-search-bar": "/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
     "cakeclass": "/components/cakeclass/cakeclass",
     "cakeitem": "/components/cakeitem/cakeitem",
     "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",

@@ -40,37 +40,10 @@ router.get('/api/item/data', function(req, res, next) {
 				'item_title' : results[i].item_title,
 				'item_description' : results[i].item_description,
 				'item_price' : results[i].item_price,
-				'theme_name' : '',
 			});
 		}
-		
-		/* 通过外键找到对应的主题 */
-		// 构建 Promise 数组来保存异步查询操作
-		const promiseArray = [];
-		
-		for(let i = 0; i < results.length; i++) {
-			const themeId = results[i].theme_id;
-			
-			// 创建异步查询的 Promise
-			const promise = new Promise(function(resolve, reject) {
-				connection.query("SELECT theme_name FROM themes WHERE theme_id = ?", [themeId], function(error, themeResults, fields) {
-					if(error) reject(error);
-					else resolve(themeResults[0].theme_name);
-				});
-			});
-			
-			// 添加 Promise 到数组中
-			promiseArray.push(promise);
-		}
-		
-		Promise.all(promiseArray).then(themeNames => {
-			// 将 theme_name 值赋给 itemArray
-			themeNames.forEach((themeName, index) => {
-				itemArray[index].theme_name = themeName;
-			});
-
-			res.json(itemArray);
-		})
+	
+		res.json(itemArray);
 	});
 });
 
@@ -87,6 +60,61 @@ router.get('/api/item/theme', function(req, res, next) {
 		  
 		res.json(themeArray);
 	});
+});
+
+/* 请求购物车信息 */
+router.get('/api/order/data', function(req, res, next) {
+	const orderArray = [];
+	connection.query("select * from orders", function(error, results, fields) {
+		if(error) throw error;
+		
+		for(let i = 0; i < results.length; i++) {
+			/* 处理图片的路径*/
+			const orderPathFromDB = results[i].order_image;
+			results[i].order_image = `http://localhost:3000/images/items/${orderPathFromDB}`;
+			
+			/* 把值放进itemArray */
+			orderArray.push({
+				'order_image' : results[i].order_image,
+				'order_title' : results[i].order_title,
+				'order_price' : results[i].order_price,
+				'order_number' : results[i].order_number,
+				'order_size' : results[i].order_size,
+			});
+		};
+			
+		res.json(orderArray);
+	});
+});
+
+/* 请求蛋糕信息 */
+router.get('/api/search/data', function(req, res, next) {
+	const searchValue = req.query.searchValue;
+	if (!searchValue) {
+	    // 如果 searchValue 为空，可以返回适当的响应，比如空数组
+	    res.json([]);
+	} else {
+		const searchArray = [];
+		connection.query(`select * from items where item_title like '%${searchValue}%'`, function(error, results, feilds) {
+			if(error) throw error;
+			
+			for(let i = 0; i < results.length; i++) {
+				/* 处理图片的路径*/
+				const searchPathFromDB = results[i].item_image;
+				results[i].item_image = `http://localhost:3000/images/items/${searchPathFromDB}`;
+				
+				/* 把值放进itemArray */
+				searchArray.push({
+					'search_image' : results[i].item_image,
+					'search_title' : results[i].item_title,
+					'search_description' : results[i].item_description,
+					'search_price' : results[i].item_price,
+				});
+			};
+			
+			res.json(searchArray);
+		})
+	}
 });
 
 module.exports = router;

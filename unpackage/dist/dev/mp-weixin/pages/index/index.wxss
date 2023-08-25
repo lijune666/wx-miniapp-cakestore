@@ -31,6 +31,9 @@
   left: 0;
   z-index: 1;
 }
+.unfixsearch {
+  position: relative;
+}
 .fixbar {
   position: fixed;
   top: 114rpx;
@@ -52,6 +55,30 @@
 .search {
   background-color: white;
   height: 110rpx;
+}
+.search .search-bar {
+  width: 85%;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: absolute;
+  top: 50%;
+  left: 30rpx;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 22rpx;
+  border-radius: 10rpx;
+  background-color: #f6f6f6;
+  color: #b3b3b3;
+  text-align: center;
+}
+.search .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 45rpx;
+  height: 45rpx;
 }
 .page-bottom-items {
   height: 936rpx;
@@ -75,7 +102,7 @@
   left: 0;
   width: 100%;
   background-color: #fff;
-  height: 900rpx;
+  height: 800rpx;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   transition: -webkit-transform 0.3s ease-out;

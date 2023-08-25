@@ -11,28 +11,29 @@
 			</swiper>
 		</view>
 		<!-- 搜索框 -->
-		<view class="search" :class="temp==1?'fixsearch':''">
-			<uni-search-bar class="uni-mt-10 search-bar" radius="5" placeholder="请输入要搜索的内容" clearButton="auto" cancelButton="none" @confirm="search" @input="input"/>
+		<view class="search" :class="temp==1?'fixsearch':'unfixsearch'">
+			<view class="search-bar" @click="onToSearchPage">请输入要搜索的内容</view>
+			<image class="search-icon" src="../../static/images/searchicon.png" @click="onToSearchPage"></image>
 		</view>
 		<!-- 主页面 -->
 		<view class="page-bottom-items">
 			<!-- 左侧栏：蛋糕主题 -->
 			<view class="left-bar" :class="temp==1?'fixbar':''">
 				<view v-for="(cakeClass, index) in cakeClasses" :key="index">
-					<cakeclass :cakeClass="cakeClass.theme_name" :cakeIndex="index" :isActived="activeIndex===index?true:false" @cakeClicked="onClassChose"></cakeclass>
+					<cakeclass :cakeClass="cakeClass.theme_name" :cakeIndex="index" :isActived="activeIndex===index?true:false" @onClassClick="onClassChose"></cakeclass>
 				</view>
 			</view>
 			<!-- 右侧：蛋糕主体 -->
 			<view class="items" :class="temp==1?'fixitems':''">
 				<view class="item" v-for="(cakeClass, index1) in cakeClasses" :key="index1">
 					<!-- 右侧：蛋糕主题 -->
-					<view class="item-title" :id="`class${index1 - 1}`">
+					<view class="item-title" :id="`class${index1}`">
 						{{cakeClass.theme_name}}
 					</view>
 					<!-- 右侧：蛋糕信息 -->
 					<view v-for="(obj, index2) in cakeMain" :key="index2">
 						<view v-if="cakeClass.theme_id == obj.theme_id">
-							<cakeitem :cakeImage="obj.item_image" :cakeTitle="obj.item_title" :cakeSubTitle="obj.item_description" :cakePrice="obj.item_price" @info-clicked="showInfo"></cakeitem>
+							<cakeitem :cakeImage="obj.item_image" :cakeTitle="obj.item_title" :cakeSubTitle="obj.item_description" :cakePrice="'£ ' + obj.item_price" @info-clicked="onShowInfo"></cakeitem>
 						</view>
 					</view> 
 				</view>
@@ -42,9 +43,9 @@
 		<view class="bottom-popup" :class="{ 'show': showPopup }">
 			<view class="popup-content">
 			    <!-- 弹窗内容 -->
-			    <view class="popup-header">{{cakeTitle}}</view>
+			    <view class="popup-header">{{popupTitle}}</view>
 			    <view class="popup-body">
-					<image mode="aspectFill" :src="cakeImage"></image>
+					<image mode="aspectFill" :src="popupImage"></image>
 				</view>
 				<uni-section>
 					<view class="text">数量：{{numberValue}}</view>
@@ -56,7 +57,7 @@
 						<uni-data-checkbox mode="tag" v-model="radio" :localdata="inch"></uni-data-checkbox>
 					</view>
 				</uni-section>
-				<button @click="closePopup" class="close-popup">X</button>
+				<button @click="onClosePopup" class="close-popup">X</button>
 				<button class="add-cart" @click="onAddCart">加入购物车</button>
 			</view>
 		</view>
@@ -69,14 +70,7 @@
 			return {
 				// 控制添加滑动到一定距离增加和删除固定样式
 				temp: 0,
-				myScroll: 0,
-				popupMessage: '',
-				showPopup: false,
-				cakeImage: '../../static/images/slideshow/slideshow_pic1.jpeg',
-				cakeTitle: '伯爵红茶戚风蛋糕-生日版',
-				cakeSubTitle: '原料：安佳黄油，小麦粉，草莓，干柠檬片',
-				cakePrice: '£ 69.99',
-				radio: 0,
+				
 				inch: [{
 					text: '6寸',
 					value: 0
@@ -87,24 +81,33 @@
 					text: '10寸',
 					value: 2
 				}],
-				numberValue: 1,
-				activeIndex: 0,
-				classDistances: [],
-				scrollTop: 0,
-				searchScroll: 0,
-				searchHeight: 0,
-				isFunctionRunning: true,
+				
 				cornerIcon: 0,
+				
 				// 轮播图
 				slidersPath: [],
 				// 蛋糕主题
 				cakeClasses: [],
 				// 蛋糕主体
 				cakeMain: [],
+				// 计算每个主题距离整个文档顶部的距离
+				classDistances: [],
+				// 当前点击的主题下标，用于修改选中和未选中的样式
+				activeIndex: 0,
+				// 控制位，搭配async和await来保证在点击主题滑动结束时不触发页面滑动的监控
+				isFunctionRunning: true,
+				// 底部弹出框
+				showPopup: false,
+				popupImage: '',
+				popupTitle: '',
+				numberValue: 1,  // 数量选择
+				radio: 0,   // 选择哪一规格
+				// 页面卷去的高度
+				currentScrollTop: 0,
+				// 搜索
+				searchScroll: 0,  // 搜索框距离文档顶部的距离
+				searchHeight: 0,  // 搜索框的高度
 			};
-		},
-		onLoad() {	
-			
 		},
 		created() {
 			// 轮播图
@@ -128,7 +131,6 @@
 				url: 'http://localhost:3000/api/item/data',
 				success: (res) => {
 					this.cakeMain = res.data;
-					console.log(res.data);
 				},
 			});
 			
@@ -140,8 +142,30 @@
 		},
 		
 		mounted() {
+			// 需要等到渲染完毕再计算每个主题的距离，方便点击后屏幕滚动到对应的位置
 			this.computedClassDistances();
 		},
+		
+		// uniapp的生命周期函数之一，监听页面滑动，从而在滑到对应主题时，左侧栏显示对应的主题
+		onPageScroll(position) {
+			// 左边栏和搜索框的固定
+			const currentPosition = position.scrollTop;
+			if(currentPosition > this.searchScroll){
+				this.temp= 1
+			}else{
+				this.temp= 0
+			}
+			
+			// 如果页面滑动距离超过主题最下面，则修改对应主题的下标，增加class和撤销class
+			if(this.isFunctionRunning) {
+				for(let i = 0; i < this.classDistances.length; i++) {
+					if(currentPosition > this.classDistances[i]) {
+						this.activeIndex = i
+					}
+				}
+			}
+		},
+		
 		watch: {
 			cornerIcon(newVal, oldVal) {
 			    if (newVal !== oldVal) {
@@ -158,50 +182,29 @@
 							text: newVal.toString(),
 							success: function() {
 								console.log('红点显示成功');
-							}
+							},
 			            });
 			        }
 			    }
 			}
 		},
-		onPageScroll(position) {
-			const currentPosition = position.scrollTop;
-			if(currentPosition > this.searchScroll){
-				this.temp= 1
-			}else{
-				this.temp= 0
-			}
-			
-			if(this.isFunctionRunning) {
-				for(let i = 0; i < this.classDistances.length; i++) {
-					if(currentPosition > this.classDistances[i]) {
-						this.activeIndex = i
-					}
-				}
-			}
-		},
 		
 		methods: {
-			onAddCart() {
-				console.log(1)
-				this.cornerIcon = this.cornerIcon + this.numberValue;
+			// 计算每个主题的距离
+			computedClassDistances() {
+				this.cakeClasses.map((_, index) => {
+					const query = uni.createSelectorQuery().select('#class' + index);
+					query.boundingClientRect(rect => {
+						this.currentScrollTop = rect.top - this.searchHeight;
+						this.classDistances.push(this.currentScrollTop)
+					}).exec();
+				});
 			},
-		    showInfo(message) {
-				this.showPopup = true;
-				this.popupMessage = message;
-		    },
-			closePopup() {
-				this.showPopup = false;
-			},
-			input(res) {
-				console.log('----input:', res)
-			},
-			change(value) {
-				this.numberValue = value
-			},
+			
+			// 点击主题滑到对应的部分
 			async onClassChose(index) {
 				this.activeIndex = index;
-
+			
 				this.isFunctionRunning = false;
 				
 				await uni.pageScrollTo({
@@ -209,15 +212,40 @@
 					duration: 300,
 				});
 				
-				this.isFunctionRunning = true;
+				// 延长一秒，防止变为true太快导致页面滑动还没停止就开启监听了，这样最下面没有超过视窗顶的对应主题无法被选中
+				setTimeout(() => {
+					this.isFunctionRunning = true;
+				}, 100); 
 			},
-			computedClassDistances() {
-				this.cakeClasses.map((_, index) => {
-					const query = uni.createSelectorQuery().select('#class' + index);
-					query.boundingClientRect(rect => {
-						this.scrollTop = rect.top - this.searchHeight;
-						this.classDistances.push(this.scrollTop)
-					}).exec();
+			
+			// 获得底部弹窗的的图片和标题
+			onShowInfo(img, tte) {
+				this.showPopup = true;
+				this.popupImage = img;
+				this.popupTitle = tte;
+			},
+			
+			// 点击+或-触发获得数量选择器的值
+			change(value) {
+				this.numberValue = value
+			},
+			
+			// 关闭底部弹窗
+			onClosePopup() {
+				this.showPopup = false;
+			},
+			
+			// 加入购物车
+			onAddCart() {
+				// 显示角标（需要修改，应该读数据库里的数量）
+				this.cornerIcon = this.cornerIcon + this.numberValue;
+			},
+		    
+			// 点击搜索框跳转到搜索页面
+			onToSearchPage() {
+				// 跳转到搜索页面
+				uni.navigateTo({
+					url: '../search/search',
 				});
 			},
 		}
@@ -231,6 +259,10 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
+}
+	
+.unfixsearch {
+	position: relative;
 }
 
 .fixbar {
@@ -258,6 +290,26 @@
 	background-color: white;
 	height: 110rpx;
 	.search-bar {
+		width: 85%;
+		height: 60rpx;
+		line-height: 60rpx;
+		position: absolute;
+		top: 50%;
+		left: 30rpx;
+		transform: translateY(-50%);
+		font-size: 22rpx;
+		border-radius: 10rpx;
+		background-color: #f6f6f6;
+		color: #b3b3b3;
+		text-align: center;
+	}
+	.search-icon {
+		position: absolute;
+		top: 50%;
+		right: 30rpx;
+		transform: translateY(-50%);
+		width: 45rpx;
+		height: 45rpx;
 	}
 }
 
@@ -284,7 +336,7 @@
 	left: 0;
 	width: 100%;
 	background-color: #fff;
-	height: 900rpx;
+	height: 800rpx;
 	transform: translateY(100%);
 	transition: transform 0.3s ease-out;
 	.popup-content {

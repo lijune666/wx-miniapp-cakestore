@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view :class="{'cake-class-box': true, 'cake-class-box-chose': isActived}" @click="ontemp">{{cakeClass}}</view>
+		<view :class="{'cake-class-box': true, 'cake-class-box-chose': isActived}" @click="hanleClassClick">{{cakeClass}}</view>
 	</view>
 </template>
 
@@ -14,8 +14,8 @@
 			};
 		},
 		methods: {
-			ontemp() {
-				this.$emit('cakeClicked', this.$props.cakeIndex);
+			hanleClassClick() {
+				this.$emit('onClassClick', this.cakeIndex);
 			}
 		}
 	}

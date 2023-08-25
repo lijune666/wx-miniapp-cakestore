@@ -780,8 +780,8 @@ function populateParameters(result) {
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "3.8.7",
-    uniRuntimeVersion: "3.8.7",
+    uniCompileVersion: "3.8.12",
+    uniRuntimeVersion: "3.8.12",
     uniPlatform: undefined || "mp-weixin",
     deviceBrand: deviceBrand,
     deviceModel: model,
@@ -9651,7 +9651,13 @@ uni.addInterceptor({
 /* 37 */,
 /* 38 */,
 /* 39 */,
-/* 40 */
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */
 /*!************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/@babel/runtime/regenerator/index.js ***!
   \************************************************************************************************/
@@ -9660,11 +9666,11 @@ uni.addInterceptor({
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 41)();
+var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 47)();
 module.exports = runtime;
 
 /***/ }),
-/* 41 */
+/* 47 */
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
   \*******************************************************************/
@@ -9985,7 +9991,7 @@ function _regeneratorRuntime() {
 module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 42 */
+/* 48 */
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
   \*****************************************************************/
@@ -10025,12 +10031,6 @@ function _asyncToGenerator(fn) {
 module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
 /* 49 */,
 /* 50 */,
 /* 51 */,
@@ -10048,7 +10048,20 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 /* 63 */,
 /* 64 */,
 /* 65 */,
-/* 66 */
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
 /*!***************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \***************************************************************************************************************************/
@@ -10063,9 +10076,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 67));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 68));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 69));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 80));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 81));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 82));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10074,7 +10087,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 67 */
+/* 80 */
 /*!**************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \**************************************************************************************************************************/
@@ -10084,7 +10097,7 @@ exports.default = _default;
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
 
 /***/ }),
-/* 68 */
+/* 81 */
 /*!*******************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \*******************************************************************************************************************************/
@@ -10094,7 +10107,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
 
 /***/ }),
-/* 69 */
+/* 82 */
 /*!*******************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
   \*******************************************************************************************************************************/
@@ -10104,19 +10117,6 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
 /* 83 */,
 /* 84 */,
 /* 85 */,
@@ -10139,7 +10139,13 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"取消\",\"uni-search-
 /* 102 */,
 /* 103 */,
 /* 104 */,
-/* 105 */
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */
 /*!************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/uni-cloud/dist/index.js ***!
   \************************************************************************************/
@@ -10154,21 +10160,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 40));
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 106));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 46));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 112));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 42));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 48));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 107));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 108));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 109));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 110));
+var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 113));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 114));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ 115));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/wrapNativeSuper */ 116));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
 var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 22);
-var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 112));
+var _pages = _interopRequireDefault(__webpack_require__(/*! @/pages.json */ 118));
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e35) { throw _e35; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e36) { didErr = true; err = _e36; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
@@ -10621,7 +10627,7 @@ var b = "development" === "development",
   O = true;
 var x = "";
 try {
-  x = (__webpack_require__(/*! uni-stat-config */ 113).default || __webpack_require__(/*! uni-stat-config */ 113)).appid;
+  x = (__webpack_require__(/*! uni-stat-config */ 119).default || __webpack_require__(/*! uni-stat-config */ 119)).appid;
 } catch (e) {}
 var R = {};
 function U(e) {
@@ -17492,7 +17498,7 @@ exports.default = Ns;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
-/* 106 */
+/* 112 */
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
   \**********************************************************************/
@@ -17508,7 +17514,7 @@ function _assertThisInitialized(self) {
 module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 107 */
+/* 113 */
 /*!*********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/inherits.js ***!
   \*********************************************************/
@@ -17535,7 +17541,7 @@ function _inherits(subClass, superClass) {
 module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 108 */
+/* 114 */
 /*!**************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
   \**************************************************************************/
@@ -17543,7 +17549,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 /***/ (function(module, exports, __webpack_require__) {
 
 var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 106);
+var assertThisInitialized = __webpack_require__(/*! ./assertThisInitialized.js */ 112);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -17555,7 +17561,7 @@ function _possibleConstructorReturn(self, call) {
 module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 109 */
+/* 115 */
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
   \***************************************************************/
@@ -17571,16 +17577,16 @@ function _getPrototypeOf(o) {
 module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 110 */
+/* 116 */
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/wrapNativeSuper.js ***!
   \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 109);
+var getPrototypeOf = __webpack_require__(/*! ./getPrototypeOf.js */ 115);
 var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 111);
+var isNativeFunction = __webpack_require__(/*! ./isNativeFunction.js */ 117);
 var construct = __webpack_require__(/*! ./construct.js */ 15);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -17611,7 +17617,7 @@ function _wrapNativeSuper(Class) {
 module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 111 */
+/* 117 */
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/isNativeFunction.js ***!
   \*****************************************************************/
@@ -17624,7 +17630,7 @@ function _isNativeFunction(fn) {
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 112 */
+/* 118 */
 /*!************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/pages.json?{"type":"origin-pages-json"} ***!
   \************************************************************************************************/
@@ -17656,6 +17662,12 @@ var _default = {
     "style": {
       "navigationBarTitleText": "个人中心",
       "navigationBarTextStyle": "black",
+      "enablePullDownRefresh": false
+    }
+  }, {
+    "path": "pages/search/search",
+    "style": {
+      "navigationBarTitleText": "",
       "enablePullDownRefresh": false
     }
   }],
@@ -17691,7 +17703,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 113 */
+/* 119 */
 /*!***********************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/pages.json?{"type":"stat"} ***!
   \***********************************************************************************/
@@ -17711,12 +17723,6 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
 /* 120 */,
 /* 121 */,
 /* 122 */,
@@ -17725,7 +17731,13 @@ exports.default = _default;
 /* 125 */,
 /* 126 */,
 /* 127 */,
-/* 128 */
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */
 /*!************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \************************************************************************************************************/
@@ -18746,14 +18758,14 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
 /* 135 */,
-/* 136 */
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */
 /*!*************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-load-more/components/uni-load-more/i18n/index.js ***!
   \*************************************************************************************************************************/
@@ -18768,9 +18780,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 137));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 138));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 139));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 143));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 144));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 145));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -18779,7 +18791,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 137 */
+/* 143 */
 /*!************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-load-more/components/uni-load-more/i18n/en.json ***!
   \************************************************************************************************************************/
@@ -18789,7 +18801,7 @@ exports.default = _default;
 module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show more\",\"uni-load-more.contentrefresh\":\"loading...\",\"uni-load-more.contentnomore\":\"No more data\"}");
 
 /***/ }),
-/* 138 */
+/* 144 */
 /*!*****************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hans.json ***!
   \*****************************************************************************************************************************/
@@ -18799,7 +18811,7 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"Pull up to show mo
 module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多\",\"uni-load-more.contentrefresh\":\"正在加载...\",\"uni-load-more.contentnomore\":\"没有更多数据了\"}");
 
 /***/ }),
-/* 139 */
+/* 145 */
 /*!*****************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-load-more/components/uni-load-more/i18n/zh-Hant.json ***!
   \*****************************************************************************************************************************/
@@ -18809,19 +18821,19 @@ module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉显示更多
 module.exports = JSON.parse("{\"uni-load-more.contentdown\":\"上拉顯示更多\",\"uni-load-more.contentrefresh\":\"正在加載...\",\"uni-load-more.contentnomore\":\"沒有更多數據了\"}");
 
 /***/ }),
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
 /* 146 */,
 /* 147 */,
 /* 148 */,
 /* 149 */,
 /* 150 */,
 /* 151 */,
-/* 152 */
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */
 /*!*******************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpwxs.js ***!
   \*******************************************************************************************************************************/
@@ -18899,7 +18911,7 @@ var _default = mpMixins;
 exports.default = _default;
 
 /***/ }),
-/* 153 */
+/* 159 */
 /*!**********************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-swipe-action/components/uni-swipe-action-item/bindingx.js ***!
   \**********************************************************************************************************************************/
@@ -18918,7 +18930,7 @@ var _default = bindIngXMixins;
 exports.default = _default;
 
 /***/ }),
-/* 154 */
+/* 160 */
 /*!*********************************************************************************************************************************!*\
   !*** /Users/lijun/LocalWarehouse/wx-miniapp-cakestore/uni_modules/uni-swipe-action/components/uni-swipe-action-item/mpother.js ***!
   \*********************************************************************************************************************************/

@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/cart/cart",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {

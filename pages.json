@@ -23,7 +23,15 @@
 		        "navigationBarTitleText": "个人中心",
 				"navigationBarTextStyle": "black",
 		        "enablePullDownRefresh": false
-		    }
+		    }           
+        }
+		,{
+			"path" : "pages/search/search",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 		}
     ],
 	"globalStyle": {
