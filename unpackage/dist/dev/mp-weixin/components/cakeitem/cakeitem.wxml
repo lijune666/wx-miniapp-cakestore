@@ -1,0 +1,1 @@
+<view><view class="item-inner"><view class="item-image"><image mode="aspectFill" src="{{cakeImage}}"></image></view><view class="caketext"><view class="caketitle">{{cakeTitle}}</view><view class="cakesubtitle">{{cakeSubTitle}}</view><view class="cakeprice">{{cakePrice}}</view><button data-event-opts="{{[['tap',[['sendInfo']]]]}}" bindtap="__e">选规格</button></view></view></view>

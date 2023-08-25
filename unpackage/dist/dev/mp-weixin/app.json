@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/about/about"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/tabicon/shouye.png",
+        "selectedIconPath": "static/images/tabicon/shouye_clicked.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/images/tabicon/order.png",
+        "selectedIconPath": "static/images/tabicon/order_clicked.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "static/images/tabicon/my.png",
+        "selectedIconPath": "static/images/tabicon/my_clicked.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

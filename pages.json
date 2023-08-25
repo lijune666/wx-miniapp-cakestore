@@ -1,0 +1,59 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "一涵的蛋糕",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	    ,{
+			"path" : "pages/cart/cart",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "购物车",
+				"navigationBarTextStyle": "black"
+			}
+			
+		}
+		,{
+		    "path" : "pages/about/about",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "个人中心",
+				"navigationBarTextStyle": "black",
+		        "enablePullDownRefresh": false
+		    }
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	
+	"tabBar": {
+		"color": "black",
+		"selectedColor": "#1296db",
+		"borderStyle": "white",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/images/tabicon/shouye.png",
+			"selectedIconPath": "static/images/tabicon/shouye_clicked.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/cart/cart",
+			"iconPath": "static/images/tabicon/order.png",
+			"selectedIconPath": "static/images/tabicon/order_clicked.png",
+			"text": "订单"
+		}, {
+			"pagePath": "pages/about/about",
+			"iconPath": "static/images/tabicon/my.png",
+			"selectedIconPath": "static/images/tabicon/my_clicked.png",
+			"text": "我的"
+		}]
+	}
+
+}

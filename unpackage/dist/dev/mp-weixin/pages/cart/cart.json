@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购物车",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "cartitem": "/components/cartitem/cartitem"
+  }
+}

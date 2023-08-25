@@ -1,0 +1,1 @@
+<view><view class="box"><view class="portrait-box"><image mode="scaleToFill" src="{{portrait}}"></image></view><view class="cybername">{{name}}</view></view></view>

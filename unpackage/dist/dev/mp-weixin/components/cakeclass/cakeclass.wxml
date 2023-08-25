@@ -1,0 +1,1 @@
+<view><view data-event-opts="{{[['tap',[['ontemp',['$event']]]]]}}" class="{{[(true)?'cake-class-box':'',(isActived)?'cake-class-box-chose':'']}}" bindtap="__e">{{cakeClass}}</view></view>
