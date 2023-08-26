@@ -7,7 +7,7 @@
 <script>
 	export default {
 		name:"cakeclass",
-		props: ['cakeClass', 'cakeIndex', 'isActived'],
+		props: ['cakeClass', 'classIndex', 'isActived'],
 		data() {
 			return {
 				
@@ -15,7 +15,7 @@
 		},
 		methods: {
 			hanleClassClick() {
-				this.$emit('onClassClick', this.cakeIndex);
+				this.$emit('onClassClick', this.classIndex);
 			}
 		}
 	}

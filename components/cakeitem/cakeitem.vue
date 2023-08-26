@@ -17,7 +17,7 @@
 <script>
 	export default {
 		name:"cakeitem",
-		props: ['cakeImage', 'cakeTitle', 'cakeSubTitle', 'cakePrice'],
+		props: ['cakeImage', 'cakeTitle', 'cakeSubTitle', 'cakePrice', 'cakeIndex'],
 		data() {
 			return {
 				
@@ -25,7 +25,7 @@
 		},
 		methods: {
 			sendInfo() {
-				this.$emit('info-clicked', this.cakeImage, this.cakeTitle);
+				this.$emit('info-clicked', this.cakeImage, this.cakeTitle, this.cakeIndex);
 			}
 		},
 	}

@@ -17,7 +17,7 @@
 <script>
 	export default {
 		name:"searchitem",
-		props: ['searchImage', 'searchTitle', 'searchDescription', 'searchPrice'],
+		props: ['searchImage', 'searchTitle', 'searchDescription', 'searchPrice', 'searchIndex', 'sizeIds'],
 		data() {
 			return {
 
@@ -25,7 +25,7 @@
 		},
 		methods: {
 			sendInfo() {
-				this.$emit('info-clicked', this.searchImage, this.searchTitle);
+				this.$emit('info-clicked', this.searchImage, this.searchTitle, this.searchIndex, this.sizeIds);
 			}
 		}
 	}

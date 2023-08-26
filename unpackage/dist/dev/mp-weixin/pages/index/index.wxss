@@ -102,7 +102,7 @@
   left: 0;
   width: 100%;
   background-color: #fff;
-  height: 800rpx;
+  height: 900rpx;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   transition: -webkit-transform 0.3s ease-out;
@@ -123,6 +123,31 @@
 .bottom-popup .popup-content .popup-body image {
   width: 200rpx;
   height: 200rpx;
+}
+.bottom-popup .popup-content .sizes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bottom-popup .popup-content .sizes .size-box {
+  height: 80rpx;
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+}
+.bottom-popup .popup-content .sizes .size-box .single-size {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border: 1rpx solid #bbbbbb;
+  border-radius: 10rpx;
+  margin-left: 0;
+}
+.bottom-popup .popup-content .sizes .size-box .single-size-checked {
+  color: #32c9fc;
+  border: 1rpx solid #32c9fc;
+  background-color: rgba(50, 201, 252, 0.1);
 }
 .bottom-popup .popup-content .close-popup::after {
   border: none;

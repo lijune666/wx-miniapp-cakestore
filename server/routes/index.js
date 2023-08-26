@@ -40,6 +40,7 @@ router.get('/api/item/data', function(req, res, next) {
 				'item_title' : results[i].item_title,
 				'item_description' : results[i].item_description,
 				'item_price' : results[i].item_price,
+				'size_ids' : results[i].size_ids,
 			});
 		}
 	
@@ -87,7 +88,7 @@ router.get('/api/order/data', function(req, res, next) {
 	});
 });
 
-/* 请求蛋糕信息 */
+/* 请求搜索信息 */
 router.get('/api/search/data', function(req, res, next) {
 	const searchValue = req.query.searchValue;
 	if (!searchValue) {
@@ -109,6 +110,7 @@ router.get('/api/search/data', function(req, res, next) {
 					'search_title' : results[i].item_title,
 					'search_description' : results[i].item_description,
 					'search_price' : results[i].item_price,
+					'size_ids' : results[i].size_ids,
 				});
 			};
 			
@@ -116,5 +118,20 @@ router.get('/api/search/data', function(req, res, next) {
 		})
 	}
 });
+
+/* 请求规格信息 */
+router.get('/api/item/size', function(req, res, next) {
+	connection.query("select * from sizes", function(error, results, feilds) {
+		if(error) throw error;
+		
+		/* 把值放进themeArray作为数组形式发送 */
+		const sizeArray = results.reduce((obj, item) => {
+			obj[item.size_id] = item.size_name;
+			return obj;
+		}, {});
+		
+		res.json(sizeArray);
+	})
+})
 
 module.exports = router;

@@ -4,8 +4,6 @@
   "usingComponents": {
     "uni-search-bar": "/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar",
     "searchitem": "/components/searchitem/searchitem",
-    "uni-section": "/uni_modules/uni-section/components/uni-section/uni-section",
-    "uni-number-box": "/uni_modules/uni-number-box/components/uni-number-box/uni-number-box",
-    "uni-data-checkbox": "/uni_modules/uni-data-checkbox/components/uni-data-checkbox/uni-data-checkbox"
+    "uni-number-box": "/uni_modules/uni-number-box/components/uni-number-box/uni-number-box"
   }
 }

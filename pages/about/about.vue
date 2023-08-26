@@ -2,9 +2,9 @@
 	<view>
 		<view class="box">
 			<view class="portrait-box">
-				<image mode="scaleToFill" :src="portrait"></image>
+				<image mode="scaleToFill" :src="portrait" @click="getUserInfo"></image>
 			</view>
-			<view class="cybername">{{name}}</view>
+			<view class="cybername" @click="getUserInfo">{{name}}</view>
 		</view>
 	</view>
 </template>
@@ -14,7 +14,7 @@
 		data() {
 			return {
 				portrait: '../../static/images/slideshow/slideshow_pic3.jpeg',
-				name: '我是天才'
+				name: '点击这里登录'
 			};
 		}
 	}
