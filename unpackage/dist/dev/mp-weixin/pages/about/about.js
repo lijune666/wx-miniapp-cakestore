@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(wx, uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -152,15 +152,118 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
-      portrait: '../../static/images/slideshow/slideshow_pic3.jpeg',
-      name: '点击这里登录'
+      isModalVisible: false,
+      portrait: '../../static/images/weixintouxiang.jpeg',
+      avatarUrl: '../../static/images/weixintouxiang.jpeg',
+      selfname: '点击这里登录/注册',
+      nickname: '',
+      userInfo: {},
+      loginState: 0
     };
+  },
+  onLoad: function onLoad() {
+    var _this = this;
+    // 获取登录状态
+    wx.getStorage({
+      key: 'loginstate',
+      success: function success(res) {
+        _this.loginState = res.data;
+        wx.getStorage({
+          key: 'imageandname',
+          success: function success(res) {
+            _this.portrait = res.data[0];
+            _this.selfname = res.data[1];
+          }
+        });
+      }
+    });
+  },
+  methods: {
+    // 展示登录/注册弹窗
+    showModal: function showModal() {
+      if (this.loginState == 1) {
+        this.avatarUrl = this.portrait;
+        this.nickname = this.selfname;
+      }
+      this.isModalVisible = true;
+      uni.hideTabBar();
+    },
+    // 获取微信头像
+    onChooseAvatar: function onChooseAvatar(e) {
+      this.avatarUrl = e.detail.avatarUrl;
+    },
+    // 关闭登录/注册弹窗
+    hideModal: function hideModal() {
+      this.isModalVisible = false;
+      uni.showTabBar();
+    },
+    // 允许获得头像和昵称，并且登录
+    submitModal: function submitModal() {
+      var _this2 = this;
+      // 拿到用户的openid
+      uni.login({
+        success: function success(res) {
+          // 通过code在开发者服务器中向微信服务器请求openid
+          if (res.code) {
+            uni.request({
+              url: 'http://localhost:3000/users/api/login/userinfo',
+              data: {
+                code: res.code
+              },
+              success: function success(res) {
+                _this2.loginState = res.data;
+
+                //将这个状态放入localStorage中
+                wx.setStorageSync('loginstate', _this2.loginState);
+
+                // 前提是获得了返回的登录状态，才能运行下面的代码
+                _this2.portrait = _this2.avatarUrl;
+                uni.createSelectorQuery().select('#nickInput').fields({
+                  properties: ['value']
+                }).exec(function (res) {
+                  _this2.selfname = res[0].value;
+                  _this2.isModalVisible = false;
+                  uni.showTabBar();
+                  // 每次都可能修改，所以每次都重新存
+                  wx.setStorage({
+                    key: 'imageandname',
+                    data: [_this2.portrait, _this2.selfname]
+                  });
+                });
+              }
+            });
+          }
+        },
+        fail: function fail(res) {
+          console.log('登录失败！' + res);
+        }
+      });
+    }
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

@@ -107,7 +107,7 @@ try {
       return __webpack_require__.e(/*! import() | components/cakeitem/cakeitem */ "components/cakeitem/cakeitem").then(__webpack_require__.bind(null, /*! @/components/cakeitem/cakeitem.vue */ 76))
     },
     uniNumberBox: function () {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-number-box/components/uni-number-box/uni-number-box */ "uni_modules/uni-number-box/components/uni-number-box/uni-number-box").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue */ 90))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-number-box/components/uni-number-box/uni-number-box */ "uni_modules/uni-number-box/components/uni-number-box/uni-number-box").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue */ 83))
     },
   }
 } catch (e) {
@@ -164,7 +164,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
+/* WEBPACK VAR INJECTION */(function(uni, wx) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
@@ -309,6 +309,15 @@ var _default = {
       _this.searchScroll = res.top;
       _this.searchHeight = res.height;
     }).exec();
+
+    // 获取登录状态
+    // 设置超时，与上一次登录时间相比，超过了一定时间登录状态被置为0，并且要传回数据库
+    wx.getStorage({
+      key: "loginstate",
+      success: function success(res) {
+        console.log(res.data);
+      }
+    });
   },
   mounted: function mounted() {
     // 需要等到渲染完毕再计算每个主题的距离，方便点击后屏幕滚动到对应的位置
@@ -443,7 +452,7 @@ var _default = {
   }
 };
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"]))
 
 /***/ }),
 

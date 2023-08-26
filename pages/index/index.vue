@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view> 
 		<!-- 轮播图 -->
 		<view class="slideshow">
 			<swiper class="swiper" circular indicator-dots autoplay interval="4000" duration="500">
@@ -131,6 +131,15 @@
 				this.searchScroll = res.top;
 				this.searchHeight = res.height;
 			}).exec();
+			
+			// 获取登录状态
+			// 设置超时，与上一次登录时间相比，超过了一定时间登录状态被置为0，并且要传回数据库
+			wx.getStorage({
+				key: "loginstate",
+				success: (res) => {
+					console.log(res.data)
+				}
+			});
 		},
 		
 		mounted() {
@@ -227,7 +236,7 @@
 					}
 				})
 			},
-			
+
 			// 点击+或-触发获得数量选择器的值
 			change(value) {
 				this.numberValue = value
@@ -362,7 +371,7 @@
 				height: 200rpx;
 			}
 		}
-		.sizes {
+		.sizes { 
 			display: flex;
 			flex-wrap: wrap;
 			.size-box {

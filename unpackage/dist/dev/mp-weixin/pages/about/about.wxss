@@ -24,14 +24,23 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
 .box .portrait-box {
   position: absolute;
   top: 450rpx;
   left: 310rpx;
   width: 150rpx;
   height: 150rpx;
-  border-radius: 50%;
   overflow: hidden;
+  border-radius: 10rpx;
 }
 .box .portrait-box image {
   width: 100%;
@@ -40,5 +49,71 @@
 .box .cybername {
   text-align: center;
   margin-top: 640rpx;
+}
+.modal-overlay {
+  position: absolute;
+  top: calc(50% - 250rpx);
+  left: calc(50% - 250rpx);
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  -webkit-animation: fadeInOut 0.3s ease-in-out;
+          animation: fadeInOut 0.3s ease-in-out;
+}
+.modal-overlay .avatar-wrapper {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100px;
+  height: 100px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+.modal-overlay .avatar-wrapper .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-overlay .weui-input {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  left: 20rpx;
+  width: 80%;
+  height: 50rpx;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  border: 1px solid #e4e1e7;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+.modal-overlay .button-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* 可根据需要调整对齐方式 */
+}
+.modal-overlay .button-box button {
+  width: 35%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+}
+@-webkit-keyframes fadeInOut {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+@keyframes fadeInOut {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
 }
 
